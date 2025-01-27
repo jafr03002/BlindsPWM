@@ -4,13 +4,16 @@
 #include "freertos/queue.h"
 #include "sdkconfig.h"
 #include "driver/ledc.h"
+#include "driver/gpio.h"
 
 /* BlindsPWM
     PWM Blinds is an automatic blinds operator powered by a servo motor
-    The stepper has 2 modes: ON or OFF, meaning the blinds are shut or not
+    The servo has 2 modes: ON or OFF, meaning the blinds are shut or not
     These modes are dependent on the PWM signal from channel 0
-    When altered the stepper motor will effectively switch the blinds.
+    When altered the servo motor will effectively switch the blinds.
 */
+
+#define LED_PIN 18
 
 void servoRotate_task(void *args){
 
@@ -41,6 +44,8 @@ void servoRotate_task(void *args){
     };
 
     ledc_channel_config(&ledc_channel);
+    esp_rom_gpio_pad_select_gpio(LED_PIN);
+    gpio_set_direction(LED_PIN, GPIO_MODE_OUTPUT);
 
     int i;
     while(1) {
@@ -52,7 +57,10 @@ void servoRotate_task(void *args){
 
             vTaskDelay(iteration_time/portTICK_PERIOD_MS);
         }
+        gpio_set_level(LED_PIN, 1);
         pos_direction = !pos_direction;
+        vTaskDelay(1000/portTICK_PERIOD_MS);
+        gpio_set_level(LED_PIN, 0);
     }
 }
 
