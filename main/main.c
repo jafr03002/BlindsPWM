@@ -9,7 +9,7 @@
     PWM Blinds is an automatic blinds operator powered by a servo motor
     The stepper has 2 modes: ON or OFF, meaning the blinds are shut or not
     These modes are dependent on the PWM signal from channel 0
-    When altered the stepper motor will effectively switch the blinds
+    When altered the stepper motor will effectively switch the blinds.
 */
 
 void servoRotate_task(void *args){
@@ -58,5 +58,5 @@ void servoRotate_task(void *args){
 
 
 void app_main(){
-    xTaskCreate(&servoRotate_task,"servoRotate_task", 2048, NULL, 5, NULL);
+    xTaskCreate(&servoRotate_task,"servoRotate_task", 2048, NULL, 5, NULL); //run task
 }
