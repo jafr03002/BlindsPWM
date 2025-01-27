@@ -1809,7 +1809,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Espressif\esp\tools\cmake\3.30.2\bin\cmake.exe --regenerate-during-build -SC:\Users\jakob\Documents\ESP-Home\BlindsPWM2 -BC:\Users\jakob\Documents\ESP-Home\BlindsPWM2\build
+  command = C:\Espressif\esp\tools\cmake\3.30.2\bin\cmake.exe --regenerate-during-build -SC:\Users\jakob\Documents\ESP-Home\BlindsPWM -BC:\Users\jakob\Documents\ESP-Home\BlindsPWM\build
   description = Re-running CMake...
   generator = 1
 

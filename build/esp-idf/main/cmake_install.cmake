@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/main
+# Install script for directory: C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

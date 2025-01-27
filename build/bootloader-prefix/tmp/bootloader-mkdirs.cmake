@@ -10,18 +10,18 @@ if(NOT EXISTS "C:/esp/esp-idf/components/bootloader/subproject")
   file(MAKE_DIRECTORY "C:/esp/esp-idf/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader"
-  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader-prefix"
-  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader-prefix/tmp"
-  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader-prefix/src/bootloader-stamp"
-  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader-prefix/src"
-  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader"
+  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader-prefix"
+  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader-prefix/tmp"
+  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader-prefix/src"
+  "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/Users/jakob/Documents/ESP-Home/BlindsPWM2/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

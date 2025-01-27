@@ -14,9 +14,9 @@
 
 void servoRotate_task(void *args){
 
-    uint16_t duty = 1638; // varies form 1638-3276 (5%-10% of 2^15)
-    uint8_t step = 14;
-    uint8_t total_cycles = 117;
+    uint16_t duty = 819; // varies form 819-4096 (2.5%-12.5% of 2^15)
+    uint8_t step = 7;
+    uint16_t total_cycles = 467;
     bool pos_direction = true; //up or down
     uint8_t iteration_time = 10; //10 ms
 
