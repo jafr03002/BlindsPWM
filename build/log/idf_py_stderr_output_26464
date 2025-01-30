@@ -1,0 +1,97 @@
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM5 instead...[0m
+[0;33m--- esp-idf-monitor 1.5.0 on \\.\COM5 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400d7dee: task_wdt_timeout_handling at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+0x400d81b0: task_wdt_isr at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+0x40082e15: _xt_lowint1 at C:/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x400df559: _svfprintf_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/vfprintf.c:1578
+0x400da539: sprintf at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/sprintf.c:618 (discriminator 1)
+0x400d6641: get_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:40
+0x400d6674: wait_for_event_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:56
+0x400d673b: servoRotate_task at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:100
+0x40086029: vPortTaskWrapper at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x400d7dee: task_wdt_timeout_handling at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+0x400d81b0: task_wdt_isr at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+0x40082e15: _xt_lowint1 at C:/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x400dad2e: __tz_lock at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/tzlock.c:42
+0x400da9b9: localtime_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/lcltime_r.c:33
+0x400da943: localtime at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/lcltime.c:51
+0x400d6632: get_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:38
+0x400d6674: wait_for_event_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:56
+0x400d673b: servoRotate_task at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:100
+0x40086029: vPortTaskWrapper at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x400d7dee: task_wdt_timeout_handling at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+0x400d81b0: task_wdt_isr at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+0x40082e15: _xt_lowint1 at C:/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x4000bfed: _xtos_set_intlevel in ROM
+0x400863c2: vPortClearInterruptMaskFromISR at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:560
+ (inlined by) vPortExitCritical at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:514
+0x40085ec4: xQueueSemaphoreTake at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1777
+0x40085f66: xQueueTakeMutexRecursive at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:835
+0x400827cd: lock_acquire_generic at C:/esp/esp-idf/components/newlib/locks.c:146
+0x400828d5: _lock_acquire_recursive at C:/esp/esp-idf/components/newlib/locks.c:162
+0x4000be35: _lock_acquire_recursive in ROM
+0x40001fda: __env_lock in ROM
+0x40001f49: _findenv_r in ROM
+0x40001fc5: _getenv_r in ROM
+0x400dad75: _tzset_unlocked_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/tzset_r.c:30
+0x400dad46: _tzset_unlocked at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/tzset.c:115 (discriminator 1)
+0x400da9bf: localtime_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/lcltime_r.c:34
+0x400da943: localtime at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/lcltime.c:51
+0x400d6632: get_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:38
+0x400d6674: wait_for_event_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:56
+0x400d673b: servoRotate_task at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:100
+0x40086029: vPortTaskWrapper at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x400d7dee: task_wdt_timeout_handling at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+0x400d81b0: task_wdt_isr at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+0x40082e15: _xt_lowint1 at C:/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x4000bfed: _xtos_set_intlevel in ROM
+0x400863c2: vPortClearInterruptMaskFromISR at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:560
+ (inlined by) vPortExitCritical at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:514
+0x40085c6b: xQueueGenericSend at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1056
+0x40082855: lock_release_generic at C:/esp/esp-idf/components/newlib/locks.c:199
+0x40082905: _lock_release at C:/esp/esp-idf/components/newlib/locks.c:206
+0x400d3add: get_adjusted_boot_time at C:/esp/esp-idf/components/newlib/time.c:94
+0x400829c2: _gettimeofday_r at C:/esp/esp-idf/components/newlib/time.c:173
+0x400db2c5: gettimeofday at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/syscalls/sysgettod.c:11 (discriminator 1)
+0x400d662d: get_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:35
+0x400d6674: wait_for_event_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:56
+0x400d673b: servoRotate_task at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:100
+0x40086029: vPortTaskWrapper at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x400d7dee: task_wdt_timeout_handling at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+0x400d81b0: task_wdt_isr at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+0x40082e15: _xt_lowint1 at C:/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x40085e5b: xQueueSemaphoreTake at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1718
+0x400827dc: lock_acquire_generic at C:/esp/esp-idf/components/newlib/locks.c:148
+0x400828c5: _lock_acquire at C:/esp/esp-idf/components/newlib/locks.c:157
+0x400d3ace: get_adjusted_boot_time at C:/esp/esp-idf/components/newlib/time.c:92
+0x400829c2: _gettimeofday_r at C:/esp/esp-idf/components/newlib/time.c:173
+0x400db2c5: gettimeofday at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/syscalls/sysgettod.c:11 (discriminator 1)
+0x400d662d: get_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:35
+0x400d6674: wait_for_event_time at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:56
+0x400d673b: servoRotate_task at C:/Users/jakob/Documents/ESP-Home/BlindsPWM/main/main.c:100
+0x40086029: vPortTaskWrapper at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
+[0m
+[0;33m--- 0x400d7dee: task_wdt_timeout_handling at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:434
+0x400d81b0: task_wdt_isr at C:/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c:507
+0x40082e15: _xt_lowint1 at C:/esp/esp-idf/components/xtensa/xtensa_vectors.S:1240
+0x4000bfed: _xtos_set_intlevel in ROM
+0x4008798e: vPortClearInterruptMaskFromISR at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:560
+ (inlined by) xTaskGetSchedulerState at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c:5028
+0x40085bcc: xQueueGenericSend at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:941
+0x40085d5e: xQueueGiveMutexRecursive at C:/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:789
+0x40082843: lock_release_generic at C:/esp/esp-idf/components/newlib/locks.c:197
+0x40082915: _lock_release_recursive at C:/esp/esp-idf/components/newlib/locks.c:211
+0x4000be85: _lock_release_recursive in ROM
+0x40001fe6: __env_unlock in ROM
+0x40001f5d: _findenv_r in ROM
+0x40001fc5: _getenv_r in ROM
+0x400dad75: _tzset_unlocked_r at /builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/time/tzset_r.c:30
+0x400dad46: _tz
