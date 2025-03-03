@@ -17,17 +17,27 @@
  */
 
 #define LED_PIN 18
+#define BTN_PIN 19
 #define PWM_PIN 25
+#define MAX_DUTY 
 #define OPEN_BLINDS_TIME "08:00:00"
 #define CLOSE_BLINDS_TIME "16:00:00"
 
-uint16_t duty = 819; // varies form 819-4096 (2.5%-12.5% of 2^15)
-uint16_t step = 7; //each step in duty increment
-uint16_t total_cycles = 467; //total steps
+float duty = 1001; // varies from 1001(3%)-4221(12.8%)
+uint16_t step = 14; //each step in duty increment
+uint16_t total_cycles = 230; //total steps
 bool pos_direction = true; //true = open, false = closed 
 uint8_t iteration_time = 10; //10 ms 
 char time_buf[9]; //HH:MM:SS
+bool btn_press = 0;
+int isr_tick;
+int now;
+int dbug_time;
 
+static void IRAM_ATTR gpio_isr_handler(void* arg){
+    isr_tick = (int)xTaskGetTickCount;
+    btn_press = 1;
+}
 
  //gets the running real time and formats it
 void get_time(){
@@ -46,12 +56,13 @@ void get_time(){
  *    Waiting function polling and comparing the correct event times with real time.
  *    then returns resulting in resuming the program
  */
-void wait_for_event_time(void){
+void wait_for_event(void){
     if(!pos_direction){ //Closed
         while(1){
             get_time();
             vTaskDelay(1000/portTICK_PERIOD_MS);
-            if(strcmp(time_buf,OPEN_BLINDS_TIME)==0){ //Open blinds time
+            if(strcmp(time_buf,OPEN_BLINDS_TIME)==0 || btn_press){ //Open blinds time 08:00:00
+                btn_press = 0;
                 return;
             }
         }
@@ -59,7 +70,8 @@ void wait_for_event_time(void){
     while(1){ //Open
         get_time();
         vTaskDelay(1000/portTICK_PERIOD_MS);
-        if(strcmp(time_buf,CLOSE_BLINDS_TIME)==0){ //Close blinds time
+        if(strcmp(time_buf,CLOSE_BLINDS_TIME)==0 || btn_press){ //Close blinds time 16:00:00
+            btn_press = 0;
             return;
         }
     }
@@ -101,6 +113,16 @@ void servoRotate_task(void *args){
     esp_rom_gpio_pad_select_gpio(LED_PIN);
     gpio_set_direction(LED_PIN, GPIO_MODE_OUTPUT);
 
+    esp_rom_gpio_pad_select_gpio(BTN_PIN);
+    gpio_set_direction(BTN_PIN, GPIO_MODE_INPUT);
+    gpio_pulldown_en(BTN_PIN);
+    gpio_pulldown_dis(BTN_PIN);
+
+    gpio_set_intr_type(BTN_PIN, GPIO_INTR_POSEDGE);
+    gpio_install_isr_service(0);
+    gpio_isr_handler_add(BTN_PIN, gpio_isr_handler, NULL);
+    gpio_intr_enable(BTN_PIN);
+
     int i;
     while(1) {
         for (i=0; i < total_cycles; i++){
@@ -108,14 +130,11 @@ void servoRotate_task(void *args){
             pos_direction ? (duty += step) : (duty -= step);
             ledc_set_duty(LEDC_HIGH_SPEED_MODE, LEDC_CHANNEL_0, duty);
             ledc_update_duty(LEDC_HIGH_SPEED_MODE, LEDC_CHANNEL_0);
-
             vTaskDelay(iteration_time/portTICK_PERIOD_MS);
         }
-        wait_for_event_time();
+        wait_for_event();
         gpio_set_level(LED_PIN, 1);
-
         pos_direction = !pos_direction;
-
         vTaskDelay(1000/portTICK_PERIOD_MS);
         gpio_set_level(LED_PIN, 0);
     }

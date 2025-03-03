@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "BlindsPWM2",
-    "project_version":    "70b3ba4-dirty",
+    "project_version":    "8f5cee6-dirty",
     "project_path":       "C:/Users/jakob/Documents/ESP-Home/BlindsPWM",
     "idf_path":           "C:/esp/esp-idf",
     "build_dir":          "C:/Users/jakob/Documents/ESP-Home/BlindsPWM/build",
