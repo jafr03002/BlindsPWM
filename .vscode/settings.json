@@ -5,5 +5,8 @@
         "board/esp32-wrover-kit-3.3v.cfg"
     ],
     "idf.portWin": "COM4",
-    "idf.toolsPathWin": "C:\\Espressif\\esp"
+    "idf.toolsPathWin": "C:\\Espressif\\esp",
+    "files.associations": {
+        "chrono": "c"
+    }
 }
